@@ -38,8 +38,15 @@ public:
 	 * \param hover The hover handler that gets called when the Text gets
 	 * hovered over.
 	 */
-	Text(String szText = "", int x = 0, int y = 0, int color = 0, int font = 0,
-		int align = 0, bool automap = false, ClickHandler click = null,
+	Text(
+		String szText = "",
+		int x = 0,
+		int y = 0,
+		int color = 0,
+		int font = 0,
+		int align = 0,
+		bool automap = false,
+		ClickHandler click = null,
 		HoverHandler hover = null);
 
 	/** Remove the Text hook from the screen and destroy the corresponding

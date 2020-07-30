@@ -35,8 +35,14 @@ public:
 	 * \param hover The hover handler that gets called when the Frame gets
 	 * hovered over.
 	 */
-	Frame(int x = 0, int y = 0, int x2 = 0, int y2 = 0, int align = 0,
-		bool automap = false, ClickHandler click = null,
+	Frame(
+		int x = 0,
+		int y = 0,
+		int x2 = 0,
+		int y2 = 0,
+		int align = 0,
+		bool automap = false,
+		ClickHandler click = null,
 		HoverHandler hover = null);
 
 	/** Remove the Frame from the screen and destroy the corresponding object.

@@ -1,13 +1,12 @@
 /** ProfileType enum.
  */
-namespace ProfileType
+namespace ProfileType {
+enum ProfileType
 {
-	enum ProfileType
-	{
-		singlePlayer,
-		battleNet,
-		openBattleNet,
-		tcpIpHost,
-		tcpIpJoin
-	};
+	singlePlayer,
+	battleNet,
+	openBattleNet,
+	tcpIpHost,
+	tcpIpJoin
+};
 };

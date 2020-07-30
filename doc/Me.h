@@ -21,7 +21,7 @@ public:
 	 */
 	bool getNext(String szName);
 
-	/** Get the next unit that matches the given class id and originally 
+	/** Get the next unit that matches the given class id and originally
 	 * specified mode.
 	 *
 	 * \param dwClassId The class id to look for.
@@ -76,7 +76,7 @@ public:
 	 * means the unit needs to still be in the server unit hash table.
 	 *
 	 * \param menuItem Index of the menu item to click.
-	 * 
+	 *
 	 * \return true if menu was found.
 	 */
 	bool useMenu(int menuItem);
@@ -108,8 +108,7 @@ public:
 	 *
 	 * \return The first item found that matches the description.
 	 */
-	Unit getItem(String name, uint32_t mode = (uint32_t) -1,
-		uint32_t nUnitId = (uint32_t)-1);
+	Unit getItem(String name, uint32_t mode = (uint32_t)-1, uint32_t nUnitId = (uint32_t)-1);
 
 	/** Get an item from inventory by classId, mode and nUnitId.
 	 *
@@ -123,8 +122,7 @@ public:
 	 *
 	 * \return The first item found that matches the description.
 	 */
-	Unit getItem(uint32_t classId = (uint32_t)-1, uint32_t mode = (uint32_t)-1,
-		uint32_t nUnitId = (uint32_t)-1);
+	Unit getItem(uint32_t classId = (uint32_t)-1, uint32_t mode = (uint32_t)-1, uint32_t nUnitId = (uint32_t)-1);
 
 	/** Get all items from inventory.
 	 *
@@ -458,7 +456,7 @@ public:
 	/** Move to the given location.
 	 *
 	 * \param x The x location.
-	 * 
+	 *
 	 * \param y The y location.
 	 */
 	void move(int x, int y);
@@ -555,7 +553,7 @@ public:
 	 * 4 - Item
 	 *
 	 * 5 - Warp
-	 * 
+	 *
 	 * Source: botNET
 	 */
 	int type;

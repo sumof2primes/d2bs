@@ -15,11 +15,11 @@
 //#undef WDEBUG
 //#endif
 //#include "Exports.hpp"
-#include <vector>
 #include <io.h>
-#include <string>
 #include <fstream>
 #include <streambuf>
+#include <string>
+#include <vector>
 
 typedef unsigned int uint;
 typedef unsigned int uint32;
@@ -40,4 +40,3 @@ typedef unsigned short uint16;
 //#include "ScriptEngine.h"
 #define NUM(x) #x
 #define NAME(line, v) (__FILE__ ":" NUM(line) " -> " #v)
-

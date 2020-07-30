@@ -137,8 +137,7 @@ public:
 	 *
 	 * \return The File object just created.
 	 */
-	static File open(String file, int mode, bool binary = false,
-		bool autoflush = false, bool lockFile = false);
+	static File open(String file, int mode, bool binary = false, bool autoflush = false, bool lockFile = false);
 
 	/** Whether or not the file can be read from. Based on whether the File is
 	 * open, whether it is at the end of file, and whether there is an error

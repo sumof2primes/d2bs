@@ -32,7 +32,7 @@
  *
  * \param y The y coordinate clicked.
  */
-typedef ClickHandler (bool*)(int button, int x, int y);
+typedef ClickHandler(bool*)(int button, int x, int y);
 
 /** The type of a hover handler.
  *
@@ -42,4 +42,4 @@ typedef ClickHandler (bool*)(int button, int x, int y);
  *
  * \param y The y coordinate hovered.
  */
-typedef HoverHandler (void*)(int x, int y);
+typedef HoverHandler(void*)(int x, int y);

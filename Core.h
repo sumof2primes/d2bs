@@ -1,8 +1,8 @@
 #pragma once
 
 #include <windows.h>
-#include <string>
 #include <list>
+#include <string>
 
 #include "D2Structs.h"
 

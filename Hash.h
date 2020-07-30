@@ -1,8 +1,8 @@
 #pragma once
 #pragma comment(lib, "Crypt32")
 
-#include <windows.h>
 #include <wincrypt.h>
+#include <windows.h>
 
 char* HashString(char* string, ALG_ID algo);
 char* HashFile(wchar_t* file, ALG_ID algo);

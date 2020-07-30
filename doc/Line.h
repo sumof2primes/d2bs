@@ -30,8 +30,14 @@ public:
 	 * \param hover The hover handler that gets called when the Line gets
 	 * hovered over.
 	 */
-	Line(int x = 0, int y = 0, int x2 = 0, int y2 = 0, int color = 0,
-		bool automap = false, ClickHandler click = null,
+	Line(
+		int x = 0,
+		int y = 0,
+		int x2 = 0,
+		int y2 = 0,
+		int color = 0,
+		bool automap = false,
+		ClickHandler click = null,
 		HoverHandler hover = null);
 
 	/** Remove the Line from the screen and destroy the corresponding object.

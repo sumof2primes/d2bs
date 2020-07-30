@@ -72,52 +72,53 @@
 ///////////////////////////////////////////////////
 // Out of Game Locations (From ControlInfo.dbl)
 ///////////////////////////////////////////////////
-enum OOG_Location {
-    OOG_NONE = 0,
-    OOG_LOBBY,
-    OOG_INLINE,
-    OOG_CHAT,
-    OOG_CREATE,
-    OOG_JOIN,
-    OOG_LADDER,
-    OOG_CHANNEL,
-    OOG_MAIN_MENU,
-    OOG_LOGIN,
-    OOG_LOGIN_ERROR,
-    OOG_UNABLE_TO_CONNECT,
-    OOG_CHAR_SELECT,
-    OOG_REALM_DOWN,
-    OOG_DISCONNECTED,
-    OOG_NEW_CHARACTER,
-    OOG_CHARACTER_SELECT_PLEASE_WAIT,
-    OOG_LOST_CONNECTION,
-    OOG_D2SPLASH,
-    OOG_CDKEY_IN_USE,
-    OOG_DIFFICULTY,
-    OOG_MAIN_MENU_CONNECTING,
-    OOG_INVALID_CDKEY,
-    OOG_CONNECTING,
-    OOG_SERVER_DOWN,
-    OOG_PLEASE_WAIT,
-    OOG_GAME_EXIST,
-    OOG_GATEWAY,
-    OOG_GAME_DOES_NOT_EXIST,
-    OOG_CHARACTER_CREATE,
-    OOG_CHARACTER_CREATE_ALREADY_EXISTS,
-    OOG_AGREE_TO_TERMS,
-    OOG_NEW_ACCOUNT,
-    OOG_PLEASE_READ,
-    OOG_REGISTER_EMAIL,
-    OOG_CREDITS,
-    OOG_CINEMATICS,
-    OOG_CHARACTOR_CHANGE_REALM,
-    OOG_GAME_IS_FULL,
-    OOG_OTHER_MULTIPLAYER,
-    OOG_TCP_IP,
-    OOG_ENTER_IP_ADDRESS,
-    OOG_CHARACTER_SELECT_NO_CHARS,
-    OOG_CHARACTER_SELECT_CHANGE_REALM,
-    OOG_UNABLE_TO_CONNECT_TCPIP
+enum OOG_Location
+{
+	OOG_NONE = 0,
+	OOG_LOBBY,
+	OOG_INLINE,
+	OOG_CHAT,
+	OOG_CREATE,
+	OOG_JOIN,
+	OOG_LADDER,
+	OOG_CHANNEL,
+	OOG_MAIN_MENU,
+	OOG_LOGIN,
+	OOG_LOGIN_ERROR,
+	OOG_UNABLE_TO_CONNECT,
+	OOG_CHAR_SELECT,
+	OOG_REALM_DOWN,
+	OOG_DISCONNECTED,
+	OOG_NEW_CHARACTER,
+	OOG_CHARACTER_SELECT_PLEASE_WAIT,
+	OOG_LOST_CONNECTION,
+	OOG_D2SPLASH,
+	OOG_CDKEY_IN_USE,
+	OOG_DIFFICULTY,
+	OOG_MAIN_MENU_CONNECTING,
+	OOG_INVALID_CDKEY,
+	OOG_CONNECTING,
+	OOG_SERVER_DOWN,
+	OOG_PLEASE_WAIT,
+	OOG_GAME_EXIST,
+	OOG_GATEWAY,
+	OOG_GAME_DOES_NOT_EXIST,
+	OOG_CHARACTER_CREATE,
+	OOG_CHARACTER_CREATE_ALREADY_EXISTS,
+	OOG_AGREE_TO_TERMS,
+	OOG_NEW_ACCOUNT,
+	OOG_PLEASE_READ,
+	OOG_REGISTER_EMAIL,
+	OOG_CREDITS,
+	OOG_CINEMATICS,
+	OOG_CHARACTOR_CHANGE_REALM,
+	OOG_GAME_IS_FULL,
+	OOG_OTHER_MULTIPLAYER,
+	OOG_TCP_IP,
+	OOG_ENTER_IP_ADDRESS,
+	OOG_CHARACTER_SELECT_NO_CHARS,
+	OOG_CHARACTER_SELECT_CHANGE_REALM,
+	OOG_UNABLE_TO_CONNECT_TCPIP
 };
 //////////////////////////////////////////////////////////////////////
 // PVP Flags
@@ -231,20 +232,21 @@ enum OOG_Location {
 ///////////////////////////////////////////////////
 // Body Locations
 ///////////////////////////////////////////////////
-enum {
-    EQUIP_NONE = 0,        // Not equipped
-    EQUIP_HEAD,            // Head
-    EQUIP_AMULET,          // Amulet
-    EQUIP_BODY,            // Body armor
-    EQUIP_RIGHT_PRIMARY,   // Right primary slot
-    EQUIP_LEFT_PRIMARY,    // Left primary slot
-    EQUIP_RIGHT_RING,      // Right ring
-    EQUIP_LEFT_RING,       // Left ring
-    EQUIP_BELT,            // Belt
-    EQUIP_FEET,            // Feet
-    EQUIP_GLOVES,          // Gloves
-    EQUIP_RIGHT_SECONDARY, // Right secondary slot
-    EQUIP_LEFT_SECONDARY,  // Left secondary slot
+enum
+{
+	EQUIP_NONE = 0,        // Not equipped
+	EQUIP_HEAD,            // Head
+	EQUIP_AMULET,          // Amulet
+	EQUIP_BODY,            // Body armor
+	EQUIP_RIGHT_PRIMARY,   // Right primary slot
+	EQUIP_LEFT_PRIMARY,    // Left primary slot
+	EQUIP_RIGHT_RING,      // Right ring
+	EQUIP_LEFT_RING,       // Left ring
+	EQUIP_BELT,            // Belt
+	EQUIP_FEET,            // Feet
+	EQUIP_GLOVES,          // Gloves
+	EQUIP_RIGHT_SECONDARY, // Right secondary slot
+	EQUIP_LEFT_SECONDARY,  // Left secondary slot
 };
 
 ///////////////////////////////////////////////////
@@ -283,76 +285,80 @@ enum {
 ///////////////////////////////////////////////////
 // Player Mode Definition
 ///////////////////////////////////////////////////
-enum {
-    PLAYER_MODE_DEATH = 0,     // death
-    PLAYER_MODE_STAND_OUTTOWN, // standing outside town
-    PLAYER_MODE_WALK_OUTTOWN,  // walking outside town
-    PLAYER_MODE_RUN,           // running
-    PLAYER_MODE_BEING_HIT,     // being hit
-    PLAYER_MODE_STAND_INTOWN,  // standing inside town
-    PLAYER_MODE_WALK_INTOWN,   // walking outside town
-    PLAYER_MODE_ATTACK1,       // attacking 1
-    PLAYER_MODE_ATTACK2,       // attacking 2
-    PLAYER_MODE_BLOCK,         // blocking
-    PLAYER_MODE_CAST,          // casting spell
-    PLAYER_MODE_THROW,         // throwing
-    PLAYER_MODE_KICK,          // kicking (assassin)
-    PLAYER_MODE_USESKILL1,     // using skill 1
-    PLAYER_MODE_USESKILL2,     // using skill 2
-    PLAYER_MODE_USESKILL3,     // using skill 3
-    PLAYER_MODE_USESKILL4,     // using skill 4
-    PLAYER_MODE_DEAD,          // dead
-    PLAYER_MODE_SEQUENCE,      // sequence
-    PLAYER_MODE_BEING_KNOCKBACK
+enum
+{
+	PLAYER_MODE_DEATH = 0,     // death
+	PLAYER_MODE_STAND_OUTTOWN, // standing outside town
+	PLAYER_MODE_WALK_OUTTOWN,  // walking outside town
+	PLAYER_MODE_RUN,           // running
+	PLAYER_MODE_BEING_HIT,     // being hit
+	PLAYER_MODE_STAND_INTOWN,  // standing inside town
+	PLAYER_MODE_WALK_INTOWN,   // walking outside town
+	PLAYER_MODE_ATTACK1,       // attacking 1
+	PLAYER_MODE_ATTACK2,       // attacking 2
+	PLAYER_MODE_BLOCK,         // blocking
+	PLAYER_MODE_CAST,          // casting spell
+	PLAYER_MODE_THROW,         // throwing
+	PLAYER_MODE_KICK,          // kicking (assassin)
+	PLAYER_MODE_USESKILL1,     // using skill 1
+	PLAYER_MODE_USESKILL2,     // using skill 2
+	PLAYER_MODE_USESKILL3,     // using skill 3
+	PLAYER_MODE_USESKILL4,     // using skill 4
+	PLAYER_MODE_DEAD,          // dead
+	PLAYER_MODE_SEQUENCE,      // sequence
+	PLAYER_MODE_BEING_KNOCKBACK
 }; // being knocked back
 
 ///////////////////////////////////////////////////
 // NPC Mode Definition
 ///////////////////////////////////////////////////
-enum {
-    NPC_MODE_DEATH = 0,       // NPC death
-    NPC_MODE_STAND,           // NPC standing still
-    NPC_MODE_WALK,            // NPC walking
-    NPC_MODE_BEING_HIT,       // NPC getting hit
-    NPC_MODE_ATTACK1,         // NPC attacking 1
-    NPC_MODE_ATTACK2,         // NPC attacking 2
-    NPC_MODE_BLOCK,           // NPC blocking
-    NPC_MODE_CAST,            // NPC casting spell skill
-    NPC_MODE_USESKILL1,       // NPC using skill 1
-    NPC_MODE_USESKILL2,       // NPC using skill 2
-    NPC_MODE_USESKILL3,       // NPC using skill 3
-    NPC_MODE_USESKILL4,       // NPC using skill 4
-    NPC_MODE_DEAD,            // NPC dead
-    NPC_MODE_BEING_KNOCKBACK, // NPC being knocked back
-    NPC_MODE_SEQUENCE,        // NPC sequence
-    NPC_MODE_RUN
+enum
+{
+	NPC_MODE_DEATH = 0,       // NPC death
+	NPC_MODE_STAND,           // NPC standing still
+	NPC_MODE_WALK,            // NPC walking
+	NPC_MODE_BEING_HIT,       // NPC getting hit
+	NPC_MODE_ATTACK1,         // NPC attacking 1
+	NPC_MODE_ATTACK2,         // NPC attacking 2
+	NPC_MODE_BLOCK,           // NPC blocking
+	NPC_MODE_CAST,            // NPC casting spell skill
+	NPC_MODE_USESKILL1,       // NPC using skill 1
+	NPC_MODE_USESKILL2,       // NPC using skill 2
+	NPC_MODE_USESKILL3,       // NPC using skill 3
+	NPC_MODE_USESKILL4,       // NPC using skill 4
+	NPC_MODE_DEAD,            // NPC dead
+	NPC_MODE_BEING_KNOCKBACK, // NPC being knocked back
+	NPC_MODE_SEQUENCE,        // NPC sequence
+	NPC_MODE_RUN
 }; // NPC running
 
 ///////////////////////////////////////////////////
 // Object Mode Definition
 ///////////////////////////////////////////////////
-enum {
-    OBJ_MODE_IDLE = 0,  // Object idle
-    OBJ_MODE_OPERATING, // Object operating
-    OBJ_MODE_OPENED,    // Object opened
-    OBJ_MODE_SPECIAL1,  // Object special 1
-    OBJ_MODE_SPECIAL2,  // Object special 2
-    OBJ_MODE_SPECIAL3,  // Object special 3
-    OBJ_MODE_SPECIAL4,  // Object special 4
-    OBJ_MODE_SPECIAL5
+enum
+{
+	OBJ_MODE_IDLE = 0,  // Object idle
+	OBJ_MODE_OPERATING, // Object operating
+	OBJ_MODE_OPENED,    // Object opened
+	OBJ_MODE_SPECIAL1,  // Object special 1
+	OBJ_MODE_SPECIAL2,  // Object special 2
+	OBJ_MODE_SPECIAL3,  // Object special 3
+	OBJ_MODE_SPECIAL4,  // Object special 4
+	OBJ_MODE_SPECIAL5
 }; // Object special 5
 
 ///////////////////////////////////////////////////
 // Item Mode Definition
 ///////////////////////////////////////////////////
-enum {
-    ITEM_MODE_INV_STASH_CUBE_STORE = 0, // Item inven stash cube store
-    ITEM_MODE_EQUIPPED,                 // Item equipped self or merc
-    ITEM_MODE_IN_BELT,                  // Item in belt
-    ITEM_MODE_ON_GROUND,                // Item on ground
-    ITEM_MODE_ON_CURSOR,                // Item on cursor
-    ITEM_MODE_BEING_DROPPED,            // Item being dropped
-    ITEM_MODE_SOCKETED_IN_ITEM
+enum
+{
+	ITEM_MODE_INV_STASH_CUBE_STORE = 0, // Item inven stash cube store
+	ITEM_MODE_EQUIPPED,                 // Item equipped self or merc
+	ITEM_MODE_IN_BELT,                  // Item in belt
+	ITEM_MODE_ON_GROUND,                // Item on ground
+	ITEM_MODE_ON_CURSOR,                // Item on cursor
+	ITEM_MODE_BEING_DROPPED,            // Item being dropped
+	ITEM_MODE_SOCKETED_IN_ITEM
 }; // Item socketed in item
 
 ///////////////////////////////////////////////////
@@ -390,7 +396,17 @@ enum {
 ///////////////////////////////////////////////////
 // Character Classes
 ///////////////////////////////////////////////////
-enum { CLASS_AMA = 0, CLASS_SOR, CLASS_NEC, CLASS_PAL, CLASS_BAR, CLASS_DRU, CLASS_ASN, CLASS_NA };
+enum
+{
+	CLASS_AMA = 0,
+	CLASS_SOR,
+	CLASS_NEC,
+	CLASS_PAL,
+	CLASS_BAR,
+	CLASS_DRU,
+	CLASS_ASN,
+	CLASS_NA
+};
 
 ///////////////////////////////////////////////////
 // Common Spells

@@ -17,8 +17,7 @@
  *
  * \return The first unit found that matches the description.
  */
-Unit getUnit(int type = -1, String name = "", uint32_t mode = (uint32_t)-1,
-	uint32_t nUnitId = (uint32_t)-1);
+Unit getUnit(int type = -1, String name = "", uint32_t mode = (uint32_t)-1, uint32_t nUnitId = (uint32_t)-1);
 
 /** Get a unit by type, classId, mode and nUnitId.
  *
@@ -36,8 +35,8 @@ Unit getUnit(int type = -1, String name = "", uint32_t mode = (uint32_t)-1,
  *
  * \return The first unit found that matches the description.
  */
-Unit getUnit(int type = -1, uint32_t classId = (uint32_t)-1,
-	uint32_t mode = (uint32_t)-1, uint32_t nUnitId = (uint32_t)-1);
+Unit getUnit(
+	int type = -1, uint32_t classId = (uint32_t)-1, uint32_t mode = (uint32_t)-1, uint32_t nUnitId = (uint32_t)-1);
 
 /** Creates a path (walking or teleporting) from the source to the destination.
  * Returns an array of points that form a path from the source to the
@@ -63,8 +62,14 @@ Unit getUnit(int type = -1, uint32_t classId = (uint32_t)-1,
  *
  * \return The path as an array of objects with x and y properties.
  */
-object[] getPath(uint32_t Area, uint32_t srcX, uint32_t srcY, uint32_t dstX,
-	int dstY, uint32_t reductionType = 0, uint32_t Radius = 20);
+object[] getPath(
+	uint32_t Area,
+	uint32_t srcX,
+	uint32_t srcY,
+	uint32_t dstX,
+	int dstY,
+	uint32_t reductionType = 0,
+	uint32_t Radius = 20);
 
 /** Creates a path (walking or teleporting) from the source to the destination.
  * Returns an array of points that form a path from the source to the
@@ -98,8 +103,14 @@ object[] getPath(uint32_t Area, uint32_t srcX, uint32_t srcY, uint32_t dstX,
  *
  * \return The path as an array of objects with x and y properties.
  */
-object[] getPath(uint32_t Area, uint32_t srcX, uint32_t srcY, uint32_t dstX,
-	int dstY, uint32_t reductionType, uint32_t Radius,
+object[] getPath(
+	uint32_t Area,
+	uint32_t srcX,
+	uint32_t srcY,
+	uint32_t dstX,
+	int dstY,
+	uint32_t reductionType,
+	uint32_t Radius,
 	bool (*reject)(int32_t x, int32_t y),
 	bool (*reduce)(object curPt, int i, object[] pts),
 	int32_t[] (*mutate)(int32_t x, int32_t y));
@@ -726,8 +737,7 @@ double getBaseStat(int32_t nBaseStat, int32_t nClassId, int32_t nStat);
  *
  * \return A Control object representing the Control found.
  */
-Control getControl(int32_t nType = -1, int32_t nX = -1, int32_t nY = -1,
-	int32_t nXSize = -1, int32_t nYSize = -1);
+Control getControl(int32_t nType = -1, int32_t nX = -1, int32_t nY = -1, int32_t nXSize = -1, int32_t nYSize = -1);
 
 /** Get the relation between two units.
  *
@@ -871,8 +881,7 @@ String paste();
  *
  * \return The result of SendMessage.
  */
-int sendCopyData(String windowClassName, String windowName, int32_t nModeId,
-	String data);
+int sendCopyData(String windowClassName, String windowName, int32_t nModeId, String data);
 
 /** Send data to another window by means of the WM_COPYDATA message. Uses
  * SendMessage to send the message to hWnd.
@@ -912,8 +921,7 @@ int sendCopyData(HWND hWnd, String dummy, int32_t nModeId, String data);
  *
  * \return Result data if mode was 0.
  */
-String sendDDE(int32_t mode, String pszDDEServer, String pszTopic,
-	String pszItem);
+String sendDDE(int32_t mode, String pszDDEServer, String pszTopic, String pszItem);
 
 /** Get whether or not a key is pressed. Returns the value of GetAsyncKeyState.
  *
@@ -980,13 +988,13 @@ bool keystate(int vKey);
  * 0x03 - "%Name1(%Name2) left our world. Diablo's minions weaken."
  * 0x04 - "%Name1 is not in the game."
  * 0x05 - "%Name1 is not logged in."
- * 
+ *
  * 0x06 - "%Name1 was Slain by %Name2"
  *    BYTE Param2 = Unit Type of Slayer (0x00 = Player, 0x01 = NPC)
  *        if Type = Player, %Name2 = Slayer Character Name & DWORD Param1 = Slayer Character Type
  *        if Type = NPC, DWORD Param1 = Monster Id Code from MPQ (points to string for %Name2)
  *        if Type = NPC & Monster is Unique, %Name2 = Unique Monster Id
- * 
+ *
  * 0x07 - Player Relations (Bottom Left Text)
  *    DWORD Param1 = Player Id
  *    Player Id = Pointer to Character Name
@@ -1003,13 +1011,13 @@ bool keystate(int vKey);
  *       0x09 - "%Player has left your party."
  *       0x0a - "%Player no longer allows you to access his corpse."
  *       0x0b - "%Player no longer allows you to access her corpse."
- * 
+ *
  * 0x08 - "%Name1 is busy."
  * 0x09 - "You must wait a short time to trade with that player."
- * 
+ *
  * 0x0a - "%Name1 has items in his box."
  *    if %Name1 = 0x00, "You have items in your box."
- * 
+ *
  * 0x0b - <Unknown>
  * 0x0c - <Unknown>
  * 0x0d - "%Name1 is not listening to you."
@@ -1279,7 +1287,7 @@ bool selectCharacter(String profile);
  *
  * \param pass The game password.
  *
- * \param diff The game difficulty. 0 - normal, 1 - nightmare, 2 - hell, 3 - 
+ * \param diff The game difficulty. 0 - normal, 1 - nightmare, 2 - hell, 3 -
  * hardest difficulty available.
  */
 void createGame(String name, String pass = "", int32_t diff = 3);
@@ -1314,8 +1322,14 @@ void joinGame(String name, String pass = "");
  * \param spDifficulty The difficulty to create games for a single player
  * character.
  */
-void addProfile(String profile, String mode, String gateway, String username,
-	String password, String charname, int spDifficulty = 3);
+void addProfile(
+	String profile,
+	String mode,
+	String gateway,
+	String username,
+	String password,
+	String charname,
+	int spDifficulty = 3);
 
 /** Get the current OOG location.
  *
@@ -1464,7 +1478,7 @@ bool clickMap(uint16_t nClickType, bool nShift, uint16_t nX, uint16_t nY);
  * 1 - Get whether trade we've accepted trade already or not.
  *
  * 2 - Get the trade flag ...
- * 
+ *
  * 3 - Get whether the check is red or not.
  *
  * \return The flag specified by action.

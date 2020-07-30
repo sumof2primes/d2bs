@@ -24,57 +24,68 @@ void ReleaseGameLock(void);
 
 void TakeGameLock(void);
 
-struct ChatEventHelper {
-    char *name, *nick;
-    wchar_t* msg;
+struct ChatEventHelper
+{
+	char *name, *nick;
+	wchar_t* msg;
 };
 
-struct CopyDataHelper {
-    DWORD mode;
-    wchar_t* msg;
+struct CopyDataHelper
+{
+	DWORD mode;
+	wchar_t* msg;
 };
 
-struct ItemEventHelper {
-    DWORD id;
-    char* code;
-    WORD mode;
-    bool global;
+struct ItemEventHelper
+{
+	DWORD id;
+	char* code;
+	WORD mode;
+	bool global;
 };
 
-struct KeyEventHelper {
-    BOOL up;
-    WPARAM key;
+struct KeyEventHelper
+{
+	BOOL up;
+	WPARAM key;
 };
 
-struct GameActionEventHelper {
-    BYTE mode;
-    DWORD param1, param2;
-    char* name1;
-    wchar_t* name2;
+struct GameActionEventHelper
+{
+	BYTE mode;
+	DWORD param1, param2;
+	char* name1;
+	wchar_t* name2;
 };
 
-struct SingleArgHelper {
-    DWORD arg1;
+struct SingleArgHelper
+{
+	DWORD arg1;
 };
 
-struct DoubleArgHelper {
-    DWORD arg1, arg2;
+struct DoubleArgHelper
+{
+	DWORD arg1, arg2;
 };
 
-struct TripleArgHelper {
-    DWORD arg1, arg2, arg3;
+struct TripleArgHelper
+{
+	DWORD arg1, arg2, arg3;
 };
-struct QuadArgHelper {
-    DWORD arg1, arg2, arg3, arg4;
+struct QuadArgHelper
+{
+	DWORD arg1, arg2, arg3, arg4;
 };
 
-struct BCastEventHelper {
-    void* cx;
-    void* argv;
-    uint argc;
+struct BCastEventHelper
+{
+	void* cx;
+	void* argv;
+	uint argc;
 };
-struct PacketEventHelper {
-    char* name;
-    BYTE* pPacket;
-    DWORD dwSize;
+struct PacketEventHelper
+{
+	char* name;
+	BYTE* pPacket;
+	DWORD dwSize;
 };
