@@ -59,7 +59,6 @@ class Profile {
         init(pt, ip, L"", _charname, L"", 0, 5000, 5000);
     }
 
-    friend JSAPI_PROP(profile_getProperty);
 
     DWORD login(char** error);
 

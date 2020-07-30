@@ -125,7 +125,6 @@ BOOL Startup(void) {
     Vars.SectionCount = 0;
 
     // MessageBox(NULL, "qwe", "qwe", MB_OK);
-    Genhook::Initialize();
     DefineOffsets();
     InstallPatches();
     InstallConditional();
@@ -148,7 +147,6 @@ void Shutdown(void) {
     SetWindowLong(D2GFX_GetHwnd(), GWL_WNDPROC, (LONG)Vars.oldWNDPROC);
 
     RemovePatches();
-    Genhook::Destroy();
     ShutdownDdeServer();
 
     KillTimer(D2GFX_GetHwnd(), Vars.uTimer);

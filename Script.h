@@ -6,25 +6,21 @@
 #include <list>
 
 #include "js32.h"
-#include "JSGlobalClasses.h"
-#include "AutoRoot.h"
-#include "JSUnit.h"
 #include "Events.h"
 enum ScriptState { InGame, OutOfGame, Command };
 
 class Script;
 
 typedef std::map<std::wstring, bool> IncludeList;
-typedef std::list<AutoRoot*> FunctionList;
+typedef std::list<void*> FunctionList;
 typedef std::map<std::string, FunctionList> FunctionMap;
 typedef std::list<Script*> ScriptList;
 
 struct Event {
     Event() : count(0){};
     Script* owner;
-    JSObject* object;
     FunctionList functions;
-    JSAutoStructuredCloneBuffer** argv;
+    void** argv;
     uint argc;
     char* name;
     void* arg1;
@@ -108,14 +104,9 @@ class Script {
     std::wstring fileName;
     int execCount;
     ScriptState scriptState;
-    JSContext* context;
-    JSScript* script;
-    JSRuntime* runtime;
-    myUnit* me;
     uint argc;
-    JSAutoStructuredCloneBuffer** argv;
+    void** argv;
 
-    JSObject *globalObject, *scriptObject;
     bool isLocked, isPaused, isReallyPaused, isAborted;
 
     IncludeList includes, inProgress;
@@ -125,7 +116,7 @@ class Script {
     CRITICAL_SECTION lock;
 
     // Script(const char* file, ScriptState state, uint argc = 0, JSAutoStructuredCloneBuffer** argv = NULL);
-    Script(const wchar_t* file, ScriptState state, uint argc = 0, JSAutoStructuredCloneBuffer** argv = NULL);
+    Script(const wchar_t* file, ScriptState state, uint argc = 0, void** argv = NULL);
     Script(const Script&);
     Script& operator=(const Script&);
     ~Script(void);
@@ -153,24 +144,10 @@ class Script {
         return fileName.c_str();
     }
     const wchar_t* GetShortFilename(void);
-    inline JSContext* GetContext(void) {
-        return context;
-    }
-    inline JSRuntime* GetRuntime(void) {
-        return runtime;
-    }
-    inline JSObject* GetGlobalObject(void) {
-        return globalObject;
-    }
-    inline JSObject* GetScriptObject(void) {
-        return scriptObject;
-    }
     inline ScriptState GetState(void) {
         return scriptState;
     }
     inline void TriggerOperationCallback(void) {
-        if (hasActiveCX)
-            JS_TriggerOperationCallback(runtime);
     }
     int GetExecutionCount(void);
     DWORD GetThreadId(void);
@@ -182,9 +159,6 @@ class Script {
     void UpdatePlayerGid(void);
     // Hack. Include from console needs to run on the RunCommandThread / cx.
     //		 a better solution may be to keep a list of threadId / cx and have a GetCurrentThreadCX()
-    inline void SetContext(JSContext* cx) {
-        context = cx;
-    }
     bool IsRunning(void);
     bool IsAborted(void);
     void Lock() {
@@ -197,9 +171,9 @@ class Script {
     bool Include(const wchar_t* file);
 
     bool IsListenerRegistered(const char* evtName);
-    void RegisterEvent(const char* evtName, jsval evtFunc);
-    bool IsRegisteredEvent(const char* evtName, jsval evtFunc);
-    void UnregisterEvent(const char* evtName, jsval evtFunc);
+    void RegisterEvent(const char* evtName, void* evtFunc);
+    bool IsRegisteredEvent(const char* evtName, void* evtFunc);
+    void UnregisterEvent(const char* evtName, void* evtFunc);
     void ClearEvent(const char* evtName);
     void ClearAllEvents(void);
     void FireEvent(Event*);
@@ -215,4 +189,4 @@ DWORD WINAPI RunCommandThread(void* data);
 DWORD WINAPI ScriptThread(void* data);
 DWORD WINAPI FuncThread(void* data);
 DWORD WINAPI EventThread(LPVOID lpParam);
-bool callEventFunction(JSContext* cx, Event* evt);
+bool callEventFunction(void* cx, void* evt);

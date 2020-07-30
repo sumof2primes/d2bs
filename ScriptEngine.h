@@ -7,7 +7,6 @@
 #include <string>
 
 #include "js32.h"
-#include "AutoRoot.h"
 #include "Script.h"
 
 typedef std::map<std::wstring, Script*> ScriptMap;
@@ -21,8 +20,6 @@ class ScriptEngine {
     virtual ~ScriptEngine(void) = 0;
     ScriptEngine(const ScriptEngine&);
     ScriptEngine& operator=(const ScriptEngine&);
-    static JSRuntime* runtime;
-    static JSContext* context;
     static Script* console;
     static EngineState state;
     static std::list<Event*> DelayedExecList;
@@ -42,7 +39,7 @@ class ScriptEngine {
 
     static void FlushCache(void);
 
-    static Script* CompileFile(const wchar_t* file, ScriptState state, uint argc = 0, JSAutoStructuredCloneBuffer** argv = NULL, bool recompile = false);
+    static Script* CompileFile(const wchar_t* file, ScriptState state, uint argc = 0, void** argv = NULL, bool recompile = false);
     static void RunCommand(const wchar_t* command);
     static void DisposeScript(Script* script);
 
@@ -52,22 +49,11 @@ class ScriptEngine {
     static bool ForEachScript(ScriptCallback callback, void* argv, uint argc);
     static unsigned int GetCount(bool active = true, bool unexecuted = false);
 
-    static JSRuntime* GetRuntime(void) {
-        return runtime;
-    }
-    static JSContext* GetGlobalContext(void) {
-        return context;
-    }
 
     static void StopAll(bool forceStop = false);
-    static void ExecEventAsync(char* evtName, AutoRoot** argv, uint argc);
-    static void InitClass(JSContext* context, JSObject* globalObject, JSClass* classp, JSFunctionSpec* methods, JSPropertySpec* props, JSFunctionSpec* s_methods,
-                          JSPropertySpec* s_props);
-    static void DefineConstant(JSContext* context, JSObject* globalObject, const char* name, int value);
     static void UpdateConsole();
     static int AddDelayedEvent(Event* evt, int freq);
     static void RemoveDelayedEvent(int key);
-    JSGCCallback gcCallback(JSRuntime* rt, JSGCStatus status);
 };
 
 // these ForEachScript helpers are exposed in case they can be of use somewhere
@@ -75,14 +61,13 @@ bool __fastcall StopIngameScript(Script* script, void*, uint);
 bool __fastcall ExecEventOnScript(Script* script, void* argv, uint argc);
 struct EventHelper {
     char* evtName;
-    AutoRoot** argv;
+    void** argv;
     uint argc;
     bool executed;
 };
-JSBool operationCallback(JSContext* cx);
-JSBool contextCallback(JSContext* cx, uint contextOp);
-// gcCallback(JSContext* cx, JSGCStatus status);
-void reportError(JSContext* cx, const char* message, JSErrorReport* report);
+bool operationCallback(void* cx);
+bool contextCallback(void* cx, uint contextOp);
+void reportError(void* cx, const char* message, void* report);
 bool ExecScriptEvent(Event* evt, bool clearList);
 void CALLBACK EventTimerProc(LPVOID lpArg, DWORD dwTimerLowValue, DWORD dwTimerHighValue);
 #endif

@@ -313,31 +313,21 @@ LRESULT CALLBACK MouseMove(int code, WPARAM wParam, LPARAM lParam) {
     if (code == HC_ACTION) {
         bool clicked = false;
 
-        HookClickHelper helper = {-1, {pt.x, pt.y}};
         switch (wParam) {
         case WM_LBUTTONDOWN:
             MouseClickEvent(0, pt, false);
-            helper.button = 0;
-            if (Genhook::ForEachVisibleHook(ClickHook, &helper, 1))
-                clicked = true;
             break;
         case WM_LBUTTONUP:
             MouseClickEvent(0, pt, true);
             break;
         case WM_RBUTTONDOWN:
             MouseClickEvent(1, pt, false);
-            helper.button = 1;
-            if (Genhook::ForEachVisibleHook(ClickHook, &helper, 1))
-                clicked = true;
             break;
         case WM_RBUTTONUP:
             MouseClickEvent(1, pt, true);
             break;
         case WM_MBUTTONDOWN:
             MouseClickEvent(2, pt, false);
-            helper.button = 2;
-            if (Genhook::ForEachVisibleHook(ClickHook, &helper, 1))
-                clicked = true;
             break;
         case WM_MBUTTONUP:
             MouseClickEvent(2, pt, true);
@@ -404,8 +394,6 @@ void FlushPrint() {
 void GameDraw(void) {
     if (Vars.bActive && ClientState() == ClientStateInGame) {
         FlushPrint();
-        Genhook::DrawAll(IG);
-        DrawLogo();
         Console::Draw();
     }
     if (Vars.bTakeScreenshot) {
@@ -427,8 +415,6 @@ void GameDrawOOG(void) {
     D2WIN_DrawSprites();
     if (Vars.bActive && ClientState() == ClientStateMenu) {
         FlushPrint();
-        Genhook::DrawAll(OOG);
-        DrawLogo();
         Console::Draw();
     }
     if (Vars.bTakeScreenshot) {

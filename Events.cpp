@@ -149,23 +149,12 @@ bool __fastcall BCastEventCallback(Script* script, void* argv, uint argc) {
     BCastEventHelper* helper = (BCastEventHelper*)argv;
 
     if (script->IsRunning() && script->IsListenerRegistered("scriptmsg")) {
-        Event* evt = new Event;
-        evt->owner = script;
-        evt->argc = argc;
-        evt->name = _strdup("scriptmsg");
-        evt->arg1 = new DWORD(argc);
-        evt->argv = new JSAutoStructuredCloneBuffer*[argc];
-        for (uint i = 0; i < argc; i++) {
-            evt->argv[i] = new JSAutoStructuredCloneBuffer;
-            evt->argv[i]->write(helper->cx, helper->argv[i]);
-        }
-
-        script->FireEvent(evt);
+        //script->FireEvent(evt);
     }
     return true;
 }
 
-void ScriptBroadcastEvent(JSContext* cx, uint argc, jsval* args) {
+void ScriptBroadcastEvent(void* cx, uint argc, void* args) {
     BCastEventHelper helper = {cx, args, argc};
     ScriptEngine::ForEachScript(BCastEventCallback, &helper, argc);
 }

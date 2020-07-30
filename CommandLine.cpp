@@ -19,7 +19,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include <time.h>
 #include "Offset.h"
-#include "File.h"
 #include "CommandLine.h"
 #include "ArrayEx.h"
 #define ArraySize(x) (sizeof((x)) / sizeof((x)[0]))

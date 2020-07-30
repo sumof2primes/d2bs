@@ -105,7 +105,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib;dependencies\libs\debug\mozjs.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>
@@ -160,7 +160,7 @@
       <Culture>0x0407</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib;Winmm.lib;dependencies\libs\release\js_static.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib;Winmm.lib</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
@@ -226,7 +226,7 @@
       <Culture>0x0407</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib;dependencies\libs\release\mozjs.lib</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;shlwapi.lib;advapi32.lib;dbghelp.lib</AdditionalDependencies>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
       <UACUIAccess>true</UACUIAccess>
@@ -263,69 +263,25 @@ XCOPY "$(ProjectDir)resources" "$(OutDir)release-pkg"
     <ClCompile Include="Events.cpp" />
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="js32.cpp" />
-    <ClCompile Include="JSProfile.cpp" />
-    <ClCompile Include="JSSocket.cpp" />
     <ClCompile Include="Offset.cpp" />
     <ClCompile Include="Profile.cpp" />
-    <ClCompile Include="sqlite3.c">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SmallerTypeCheck Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</SmallerTypeCheck>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level3</WarningLevel>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Packaging|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SmallerTypeCheck Condition="'$(Configuration)|$(Platform)'=='Packaging|Win32'">false</SmallerTypeCheck>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Packaging|Win32'">Level3</WarningLevel>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <SmallerTypeCheck Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</SmallerTypeCheck>
-      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level3</WarningLevel>
-    </ClCompile>
+    <ClCompile Include="ScreenHook.cpp" />
     <ClCompile Include="StackWalker.cpp" />
     <ClCompile Include="stringhash.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="dde.cpp" />
-    <ClCompile Include="File.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hash.cpp" />
     <ClCompile Include="MPQStats.cpp" />
     <ClCompile Include="Room.cpp" />
-    <ClCompile Include="ScreenHook.cpp" />
     <ClCompile Include="Unit.cpp" />
-    <ClCompile Include="JSArea.cpp" />
-    <ClCompile Include="JSControl.cpp" />
-    <ClCompile Include="JSCore.cpp" />
-    <ClCompile Include="JSDirectory.cpp" />
-    <ClCompile Include="JSExits.cpp" />
-    <ClCompile Include="JSFile.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Packaging|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="JSFileTools.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Packaging|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <ClCompile Include="JSGame.cpp" />
-    <ClCompile Include="JSGlobalClasses.cpp" />
-    <ClCompile Include="JSHash.cpp" />
-    <ClCompile Include="JSMenu.cpp" />
-    <ClCompile Include="JSParty.cpp" />
-    <ClCompile Include="JSPresetUnit.cpp" />
-    <ClCompile Include="JSRoom.cpp" />
-    <ClCompile Include="JSSandbox.cpp" />
-    <ClCompile Include="JSScreenHook.cpp" />
-    <ClCompile Include="JSScript.cpp" />
-    <ClCompile Include="JSSQLite.cpp" />
-    <ClCompile Include="JSUnit.cpp" />
-    <ClCompile Include="AutoRoot.cpp" />
     <ClCompile Include="Script.cpp" />
     <ClCompile Include="ScriptEngine.cpp" />
     <ClCompile Include="Map\Diablo_II\ActMap.cpp" />
     <ClCompile Include="Map\Diablo_II\LevelMap.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\bob-18_ff20\Pipe.h" />
-    <ClInclude Include="..\bob-18_ff20\Socket.h" />
     <ClInclude Include="..\bob-18_ff20\Stream.h" />
     <ClInclude Include="ArrayEx.h" />
     <ClInclude Include="CommandLine.h" />
@@ -335,9 +291,6 @@ XCOPY "$(ProjectDir)resources" "$(OutDir)release-pkg"
     <ClInclude Include="D2Ptrs.h" />
     <ClInclude Include="D2Skills.h" />
     <ClInclude Include="D2Structs.h" />
-    <ClInclude Include="dependencies\include\jsfriendapi.h" />
-    <ClInclude Include="JSProfile.h" />
-    <ClInclude Include="JSSocket.h" />
     <ClInclude Include="Patch.h" />
     <ClInclude Include="D2Intercepts.h" />
     <ClInclude Include="D2Handlers.h" />
@@ -351,60 +304,25 @@ XCOPY "$(ProjectDir)resources" "$(OutDir)release-pkg"
     <ClInclude Include="MapHeader.h" />
     <ClInclude Include="Offset.h" />
     <ClInclude Include="Profile.h" />
-    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="ScreenHook.h" />
     <ClInclude Include="StackWalker.h" />
     <ClInclude Include="stringhash.h" />
     <ClInclude Include="SyncObj.h" />
     <ClInclude Include="TimedAlloc.h" />
-    <ClInclude Include="dependencies\include\js-config.h" />
-    <ClInclude Include="dependencies\include\jsapi.h" />
-    <ClInclude Include="dependencies\include\jscompat.h" />
-    <ClInclude Include="dependencies\include\jscpucfg.h" />
-    <ClInclude Include="dependencies\include\jsinttypes.h" />
-    <ClInclude Include="dependencies\include\jsotypes.h" />
-    <ClInclude Include="dependencies\include\jspubtd.h" />
-    <ClInclude Include="dependencies\include\jstypes.h" />
-    <ClInclude Include="dependencies\include\jsutil.h" />
-    <ClInclude Include="dependencies\include\jsval.h" />
-    <ClInclude Include="dependencies\include\jsversion.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="dde.h" />
-    <ClInclude Include="File.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="MPQStats.h" />
     <ClInclude Include="Room.h" />
-    <ClInclude Include="ScreenHook.h" />
     <ClInclude Include="Unit.h" />
-    <ClInclude Include="JSArea.h" />
-    <ClInclude Include="JSControl.h" />
-    <ClInclude Include="JSCore.h" />
-    <ClInclude Include="JSDirectory.h" />
-    <ClInclude Include="JSExits.h" />
-    <ClInclude Include="JSFile.h" />
-    <ClInclude Include="JSFileTools.h" />
-    <ClInclude Include="JSGame.h" />
-    <ClInclude Include="JSGlobalClasses.h" />
-    <ClInclude Include="JSGlobalFuncs.h" />
-    <ClInclude Include="JSHash.h" />
-    <ClInclude Include="JSMenu.h" />
-    <ClInclude Include="JSParty.h" />
-    <ClInclude Include="JSPresetUnit.h" />
-    <ClInclude Include="JSRoom.h" />
-    <ClInclude Include="JSSandbox.h" />
-    <ClInclude Include="JSScreenHook.h" />
-    <ClInclude Include="JSScript.h" />
-    <ClInclude Include="JSSQLite.h" />
-    <ClInclude Include="JSUnit.h" />
-    <ClInclude Include="AutoRoot.h" />
     <ClInclude Include="Script.h" />
     <ClInclude Include="ScriptEngine.h" />
     <ClInclude Include="Map\BlankMap.h" />
     <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Map\Path\AStarPath.h" />
     <ClInclude Include="Map\Path\Path.h" />
-    <ClInclude Include="Map\Path\Reduction\JSPathReducer.h" />
     <ClInclude Include="Map\Path\Reduction\NoPathReducer.h" />
     <ClInclude Include="Map\Path\Reduction\PathReducer.h" />
     <ClInclude Include="Map\Path\Reduction\TeleportPathReducer.h" />
@@ -412,9 +330,6 @@ XCOPY "$(ProjectDir)resources" "$(OutDir)release-pkg"
     <ClInclude Include="Map\Diablo_II\ACtMap.h" />
     <ClInclude Include="Map\Diablo_II\LevelMap.h" />
     <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="dependencies\include\jsproto.tbl" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="version.rc" />
